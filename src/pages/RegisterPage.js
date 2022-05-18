@@ -72,7 +72,7 @@ export const RegisterPage = () => {
         showPassword: false,
     });
 
-    const handleChange = (prop) => (event) => {
+    const handleChange1 = (prop) => (event) => {
         setValues({ ...values, [prop]: event.target.value });
     };
     const handleChange2 = (prop) => (event) => {
@@ -115,10 +115,10 @@ export const RegisterPage = () => {
                         <FormControl className={classes.bgc} sx={{ m: 1 }} variant="filled">
                             <InputLabel htmlFor="filled-adornment-password">PASSWORD</InputLabel>
                             <FilledInput
-                                id="filled-adornment-password"
+                                id="filled-adornment-password1"
                                 type={values.showPassword ? 'text' : 'password'}
-                                value={values.password2}
-                                onChange={handleChange2('password2')}
+                                value={values.password1}
+                                onChange={handleChange1('password1')}
                                 endAdornment={
                                     <InputAdornment position="end">
                                         <IconButton
@@ -139,10 +139,10 @@ export const RegisterPage = () => {
                         <FormControl className={classes.bgc} sx={{ m: 1 }} variant="filled">
                             <InputLabel htmlFor="filled-adornment-password">PASSWORD</InputLabel>
                             <FilledInput
-                                id="filled-adornment-password"
+                                id="filled-adornment-password2"
                                 type={values.showPassword ? 'text' : 'password'}
-                                value={values.password}
-                                onChange={handleChange('password')}
+                                value={values.password2}
+                                onChange={handleChange2('password2')}
                                 endAdornment={
                                     <InputAdornment position="end">
                                         <IconButton

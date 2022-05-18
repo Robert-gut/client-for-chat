@@ -1,8 +1,8 @@
 import * as yup from 'yup';
 
-export const validationSchema = yup.object({
+export const validationRegister = yup.object({
     UserName: yup.string().required("Required"),
-    Password: yup
+    Password1: yup
         .string()
         .required('Please Enter your password')
         .matches(

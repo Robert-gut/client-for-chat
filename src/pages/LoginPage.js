@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from 'react-router-dom';
 
 import { makeStyles } from '@mui/styles';
 import Grid from '@mui/material/Grid';
@@ -136,7 +137,7 @@ export const LoginPage = () => {
                     <div className={classes.btn}>
                         <ThemeProvider theme={theme}>
                             <Button size="large" style={{ width: '30%' }} color="neutral" variant="outlined" >Login</Button>
-                            <Button size="large" style={{ width: '30%' }} color="neutral" variant="outlined" >Register</Button>
+                            <Link style={{ width: '30%', color: '#fff', textDecoration: 'none' }} to="/register"><Button size="large" style={{ width: '100%' }} color="neutral" variant="outlined" >Register</Button></Link>
                         </ThemeProvider>
                     </div>
                 </div>

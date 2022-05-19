@@ -7,13 +7,9 @@ import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import TagFacesIcon from '@mui/icons-material/TagFaces';
 import { grey } from '@mui/material/colors'
 import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
 import FilledInput from '@mui/material/FilledInput';
 import InputLabel from '@mui/material/InputLabel';
-import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import PersonIcon from '@mui/icons-material/Person';
 import EnhancedEncryptionIcon from '@mui/icons-material/EnhancedEncryption';
 import LockIcon from '@mui/icons-material/Lock';
@@ -68,23 +64,6 @@ const theme = createTheme({
 
 export const RegisterPage = () => {
     const classes = useStyles()
-    const [values, setValues] = React.useState({
-        showPassword: false,
-    });
-
-    const handleChange1 = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-    };
-    const handleChange2 = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-    };
-
-    const handleClickShowPassword = () => {
-        setValues({
-            ...values,
-            showPassword: !values.showPassword,
-        });
-    };
 
 
 
@@ -104,8 +83,7 @@ export const RegisterPage = () => {
                             <InputLabel htmlFor="filled-adornment-password">USER NAME</InputLabel>
                             <FilledInput
                                 id="filled-adornment-userName"
-                                type={values.text}
-                                value={values.text}
+                                type="text"
                             />
                         </FormControl>
                     </Box>
@@ -116,20 +94,7 @@ export const RegisterPage = () => {
                             <InputLabel htmlFor="filled-adornment-password">PASSWORD</InputLabel>
                             <FilledInput
                                 id="filled-adornment-password1"
-                                type={values.showPassword ? 'text' : 'password'}
-                                value={values.password1}
-                                onChange={handleChange1('password1')}
-                                endAdornment={
-                                    <InputAdornment position="end">
-                                        <IconButton
-                                            aria-label="toggle password visibility"
-                                            onClick={handleClickShowPassword}
-                                            edge="end"
-                                        >
-                                            {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                                        </IconButton>
-                                    </InputAdornment>
-                                }
+                                type="password"
                             />
                         </FormControl>
                     </Box>
@@ -140,20 +105,7 @@ export const RegisterPage = () => {
                             <InputLabel htmlFor="filled-adornment-password">PASSWORD</InputLabel>
                             <FilledInput
                                 id="filled-adornment-password2"
-                                type={values.showPassword ? 'text' : 'password'}
-                                value={values.password2}
-                                onChange={handleChange2('password2')}
-                                endAdornment={
-                                    <InputAdornment position="end">
-                                        <IconButton
-                                            aria-label="toggle password visibility"
-                                            onClick={handleClickShowPassword}
-                                            edge="end"
-                                        >
-                                            {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                                        </IconButton>
-                                    </InputAdornment>
-                                }
+                                type="password"
                             />
                         </FormControl>
                     </Box>

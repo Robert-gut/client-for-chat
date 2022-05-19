@@ -16,6 +16,10 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 
+//validation
+import { validationLogin } from "../Componens/validation/validationLogin";
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+
 
 
 const useStyles = makeStyles({
@@ -56,52 +60,81 @@ const theme = createTheme({
     },
 });
 
-
 export const LoginPage = () => {
     const classes = useStyles()
-    
+
+
+    const onSubmit = async (values) => {
+        const User = {
+            userName: values.userName,
+            password: values.password
+        }
+        console.log(User)
+    };
+
+    const initialValues = {
+        userName: "",
+        password: "",
+    };
+
+
+
     return (
         <Grid container spacing={1}>
             <Grid item xs={0} sm={2} md={2} lg={4} />
             <Grid item xs={12} sm={8} md={8} lg={4}>
                 <div className={classes.center}>
                     <AccountCircleIcon sx={{ fontSize: 190, color: grey[50] }} />
-                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <PersonIcon sx={{ fontSize: '60px', color: grey[50], mr: 1, my: 0 }} />
-                        <FormControl className={classes.bgc} sx={{ m: 1 }} variant="filled">
-                            <InputLabel htmlFor="filled-adornment-password">USER NAME</InputLabel>
-                            <FilledInput
-                                id="filled-adornment-userName"
-                                type="text"
-                            />
-                        </FormControl>
-                    </Box>
+                    <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationLogin}>
+                        {(props) => (
+                            <Form>
+                                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <PersonIcon sx={{ fontSize: '60px', color: grey[50], mr: 1, my: 0 }} />
+                                    <FormControl className={classes.bgc} sx={{ m: 1 }} variant="filled">
+                                        <InputLabel htmlFor="filled-adornment-password">USER NAME</InputLabel>
+                                        <Field
+                                            as={FilledInput}
+                                            name="userName"
+                                            type="text"
+                                            fullWidth
+                                        />
+                                    </FormControl>
+                                </Box>
+                                <ErrorMessage name="userName" component="p" style={{ color: "red", margin: "2px" }} />
 
-                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <LockIcon sx={{ fontSize: '60px', color: grey[50], mr: 1, my: 0 }} />
-                        <FormControl className={classes.bgc} sx={{ m: 1 }} variant="filled">
-                            <InputLabel htmlFor="filled-adornment-password">PASSWORD</InputLabel>
-                            <FilledInput
-                                id="filled-adornment-password"
-                                type="password"
-                            />
-                        </FormControl>
-                    </Box>
-                    <div className={classes.checkBox}>
-                        <FormControlLabel
-                            className={classes.formControl}
-                            value="end"
-                            control={<Checkbox />}
-                            label="Remember me"
-                            labelPlacement="end"
-                        />
-                    </div>
-                    <div className={classes.btn}>
-                        <ThemeProvider theme={theme}>
-                            <Button size="large" style={{ width: '30%' }} color="neutral" variant="outlined" >Login</Button>
-                            <Link style={{ width: '30%', color: '#fff', textDecoration: 'none' }} to="/register"><Button size="large" style={{ width: '100%' }} color="neutral" variant="outlined" >Register</Button></Link>
-                        </ThemeProvider>
-                    </div>
+                                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <LockIcon sx={{ fontSize: '60px', color: grey[50], mr: 1, my: 0 }} />
+                                    <FormControl className={classes.bgc} sx={{ m: 1 }} variant="filled">
+                                        <InputLabel htmlFor="filled-adornment-password">PASSWORD</InputLabel>
+                                        <Field
+                                            as={FilledInput}
+                                            name="password"
+                                            type="password"
+                                            fullWidth
+                                        />
+                                    </FormControl>
+                                </Box>
+                                <ErrorMessage name="password" component="p" style={{ color: "red", margin: "2px" }} />
+
+                                <div className={classes.checkBox}>
+                                    <FormControlLabel
+                                        className={classes.formControl}
+                                        value="end"
+                                        control={<Checkbox />}
+                                        label="Remember me"
+                                        labelPlacement="end"
+                                    />
+                                </div>
+
+                                <div className={classes.btn}>
+                                    <ThemeProvider theme={theme}>
+                                        <Button type="submit" size="large" style={{ width: '30%' }} color="neutral" variant="outlined" >Login</Button>
+                                        <Link style={{ width: '30%', color: '#fff', textDecoration: 'none' }} to="/register"><Button size="large" style={{ width: '100%' }} color="neutral" variant="outlined" >Register</Button></Link>
+                                    </ThemeProvider>
+                                </div>
+                            </Form>
+                        )}
+                    </Formik>
                 </div>
             </Grid>
             <Grid item xs={0} sm={2} md={2} lg={4} />

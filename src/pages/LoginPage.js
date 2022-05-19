@@ -21,7 +21,7 @@ import { validationLogin } from "../Componens/validation/validationLogin";
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 
 
-
+//style
 const useStyles = makeStyles({
     center: {
         textAlign: 'center',
@@ -64,6 +64,7 @@ export const LoginPage = () => {
     const classes = useStyles()
 
 
+    //validation
     const onSubmit = async (values) => {
         const User = {
             userName: values.userName,
@@ -100,7 +101,7 @@ export const LoginPage = () => {
                                         />
                                     </FormControl>
                                 </Box>
-                                <ErrorMessage name="userName" component="p" style={{ color: "red", margin: "2px" }} />
+                                <ErrorMessage name="userName" component="p" style={{ color: "red", margin: "0px" }} />
 
                                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                     <LockIcon sx={{ fontSize: '60px', color: grey[50], mr: 1, my: 0 }} />
@@ -114,7 +115,7 @@ export const LoginPage = () => {
                                         />
                                     </FormControl>
                                 </Box>
-                                <ErrorMessage name="password" component="p" style={{ color: "red", margin: "2px" }} />
+                                <ErrorMessage name="password" component="p" style={{ color: "red", margin: "0px" }} />
 
                                 <div className={classes.checkBox}>
                                     <FormControlLabel
@@ -128,8 +129,8 @@ export const LoginPage = () => {
 
                                 <div className={classes.btn}>
                                     <ThemeProvider theme={theme}>
-                                        <Button type="submit" size="large" style={{ width: '30%' }} color="neutral" variant="outlined" >Login</Button>
-                                        <Link style={{ width: '30%', color: '#fff', textDecoration: 'none' }} to="/register"><Button size="large" style={{ width: '100%' }} color="neutral" variant="outlined" >Register</Button></Link>
+                                        <Button type="submit" size="large" style={{ width: '30%' }} color="neutral" variant="outlined" >Log in</Button>
+                                        <Link style={{ width: '30%', color: '#fff', textDecoration: 'none' }} to="/register"><Button size="large" style={{ width: '100%' }} color="neutral" variant="outlined" >log up</Button></Link>
                                     </ThemeProvider>
                                 </div>
                             </Form>

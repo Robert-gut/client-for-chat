@@ -16,8 +16,12 @@ import LockIcon from '@mui/icons-material/Lock';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 
+//validation
+import { validationRegister } from "../Componens/validation/validationRegister";
+import { Formik, Form, Field, ErrorMessage } from 'formik'
 
 
+//style
 const useStyles = makeStyles({
     center: {
         textAlign: 'center',
@@ -65,6 +69,21 @@ const theme = createTheme({
 export const RegisterPage = () => {
     const classes = useStyles()
 
+    //validation
+    const onSubmit = async (values) => {
+        const NewUser = {
+            userName: values.userName,
+            password: values.password,
+            confirmPassword: values.confirmPassword,
+        }
+        console.log(NewUser)
+    };
+
+    const initialValues = {
+        userName: "",
+        password: "",
+        confirmPassword: ""
+    };
 
 
 
@@ -77,45 +96,61 @@ export const RegisterPage = () => {
                         <TagFacesIcon className={classes.positionForFoto} sx={{ fontSize: 190, color: grey[50] }} />
                         <Button><AddAPhotoIcon sx={{ fontSize: 29, color: grey[50] }} /></Button>
                     </div>
-                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <PersonIcon sx={{ fontSize: '60px', color: grey[50], mr: 1, my: 0 }} />
-                        <FormControl className={classes.bgc} sx={{ m: 1 }} variant="filled">
-                            <InputLabel htmlFor="filled-adornment-password">USER NAME</InputLabel>
-                            <FilledInput
-                                id="filled-adornment-userName"
-                                type="text"
-                            />
-                        </FormControl>
-                    </Box>
+                    <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationRegister}>
+                        {(props) => (
+                            <Form>
 
-                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <EnhancedEncryptionIcon sx={{ fontSize: '60px', color: grey[50], mr: 1, my: 0 }} />
-                        <FormControl className={classes.bgc} sx={{ m: 1 }} variant="filled">
-                            <InputLabel htmlFor="filled-adornment-password">PASSWORD</InputLabel>
-                            <FilledInput
-                                id="filled-adornment-password1"
-                                type="password"
-                            />
-                        </FormControl>
-                    </Box>
+                                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <PersonIcon sx={{ fontSize: '60px', color: grey[50], mr: 1, my: 0 }} />
+                                    <FormControl className={classes.bgc} sx={{ m: 1 }} variant="filled">
+                                        <InputLabel htmlFor="filled-adornment-password">USER NAME</InputLabel>
+                                        <Field
+                                            as={FilledInput}
+                                            name="userName"
+                                            type="text"
+                                            fullWidth
+                                        />
+                                    </FormControl>
+                                </Box>
+                                <ErrorMessage name="userName" component="p" style={{ color: "red", margin: "2px" }} />
 
-                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <LockIcon sx={{ fontSize: '60px', color: grey[50], mr: 1, my: 0 }} />
-                        <FormControl className={classes.bgc} sx={{ m: 1 }} variant="filled">
-                            <InputLabel htmlFor="filled-adornment-password">PASSWORD</InputLabel>
-                            <FilledInput
-                                id="filled-adornment-password2"
-                                type="password"
-                            />
-                        </FormControl>
-                    </Box>
+                                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <EnhancedEncryptionIcon sx={{ fontSize: '60px', color: grey[50], mr: 1, my: 0 }} />
+                                    <FormControl className={classes.bgc} sx={{ m: 1 }} variant="filled">
+                                        <InputLabel htmlFor="filled-adornment-password">PASSWORD</InputLabel>
+                                        <Field
+                                            as={FilledInput}
+                                            name="password"
+                                            type="password"
+                                            fullWidth
+                                        />
+                                    </FormControl>
+                                </Box>
+                                <ErrorMessage name="password" component="p" style={{ color: "red", margin: "2px" }} />
 
-                    <div className={classes.btn}>
-                        <ThemeProvider theme={theme}>
-                            <Link style={{ width: '30%', color: '#fff', textDecoration: 'none' }} to="/login"><Button size="large" style={{ width: '100%' }} color="neutral" variant="outlined" >Go back</Button></Link>
-                            <Button size="large" style={{ width: '30%' }} color="neutral" variant="outlined" >Register</Button>
-                        </ThemeProvider>
-                    </div>
+                                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <LockIcon sx={{ fontSize: '60px', color: grey[50], mr: 1, my: 0 }} />
+                                    <FormControl className={classes.bgc} sx={{ m: 1 }} variant="filled">
+                                        <InputLabel htmlFor="filled-adornment-password">CONFIRM PASSWORD</InputLabel>
+                                        <Field
+                                            as={FilledInput}
+                                            name="confirmPassword"
+                                            type="password"
+                                            fullWidth
+                                        />
+                                    </FormControl>
+                                </Box>
+                                <ErrorMessage name="confirmPassword" component="p" style={{ color: "red", margin: "2px" }} />
+
+                                <div className={classes.btn}>
+                                    <ThemeProvider theme={theme}>
+                                        <Link style={{ width: '30%', color: '#fff', textDecoration: 'none' }} to="/login"><Button size="large" style={{ width: '100%' }} color="neutral" variant="outlined" >Go back</Button></Link>
+                                        <Button type="submit" size="large" style={{ width: '30%' }} color="neutral" variant="outlined" >sign up</Button>
+                                    </ThemeProvider>
+                                </div>
+                            </Form>
+                        )}
+                    </Formik>
                 </div>
             </Grid>
             <Grid item xs={0} sm={2} md={2} lg={4} />

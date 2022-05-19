@@ -6,13 +6,9 @@ import Grid from '@mui/material/Grid';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { grey } from '@mui/material/colors'
 import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
 import FilledInput from '@mui/material/FilledInput';
 import InputLabel from '@mui/material/InputLabel';
-import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import PersonIcon from '@mui/icons-material/Person';
 import LockIcon from '@mui/icons-material/Lock';
 import Checkbox from '@mui/material/Checkbox';
@@ -63,26 +59,7 @@ const theme = createTheme({
 
 export const LoginPage = () => {
     const classes = useStyles()
-    const [values, setValues] = React.useState({
-        showPassword: false,
-    });
-
-    const handleChange = (prop) => (event) => {
-        setValues({ ...values, [prop]: event.target.value });
-    };
-
-    const handleClickShowPassword = () => {
-        setValues({
-            ...values,
-            showPassword: !values.showPassword,
-        });
-    };
-
-    const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    };
-
-
+    
     return (
         <Grid container spacing={1}>
             <Grid item xs={0} sm={2} md={2} lg={4} />
@@ -95,8 +72,7 @@ export const LoginPage = () => {
                             <InputLabel htmlFor="filled-adornment-password">USER NAME</InputLabel>
                             <FilledInput
                                 id="filled-adornment-userName"
-                                type={values.text}
-                                value={values.text}
+                                type="text"
                             />
                         </FormControl>
                     </Box>
@@ -107,21 +83,7 @@ export const LoginPage = () => {
                             <InputLabel htmlFor="filled-adornment-password">PASSWORD</InputLabel>
                             <FilledInput
                                 id="filled-adornment-password"
-                                type={values.showPassword ? 'text' : 'password'}
-                                value={values.password}
-                                onChange={handleChange('password')}
-                                endAdornment={
-                                    <InputAdornment position="end">
-                                        <IconButton
-                                            aria-label="toggle password visibility"
-                                            onClick={handleClickShowPassword}
-                                            onMouseDown={handleMouseDownPassword}
-                                            edge="end"
-                                        >
-                                            {values.showPassword ? <VisibilityOff /> : <Visibility />}
-                                        </IconButton>
-                                    </InputAdornment>
-                                }
+                                type="password"
                             />
                         </FormControl>
                     </Box>

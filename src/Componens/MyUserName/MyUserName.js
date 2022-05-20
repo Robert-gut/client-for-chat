@@ -24,8 +24,6 @@ export default function MyUserName() {
                 }
                 action={
                     <div style={{ display: 'flex' }}>
-
-
                         <PlaygroundSpeedDial aria-label="settings" size="large" style={{ color: '#fff' }} />
                         <IconButton aria-label="settings" size="large" style={{ color: '#fff' }}>
                             <MoreVertIcon fontSize="large" />

@@ -5,6 +5,7 @@ import { makeStyles } from '@mui/styles';
 import { ChatList } from './../Componens/ChatList/ChatList';
 import MyUserName from "../Componens/MyUserName/MyUserName";
 import SearchChat from './../Componens/SearchChat/SearchChat';
+import Filter from "../Componens/Filter/Filter";
 
 
 //style
@@ -22,9 +23,10 @@ export const MainPage = () => {
     return (
         <Grid container spacing={1} >
             <Grid item xs={4} sm={4} md={4} lg={4} >
-                <div className={classes.container}>
+                <div>
                     <MyUserName />
                     <SearchChat />
+                    <Filter/>
                     <ChatList />
                 </div>
             </Grid>

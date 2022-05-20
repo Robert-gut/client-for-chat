@@ -32,20 +32,16 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: "inherit",
     "& .MuiInputBase-input": {
-        padding: theme.spacing(1, 1, 1, 0),
+        padding: theme.spacing(1, 1, 1, 1),
         // vertical padding + font size from searchIcon
         paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-        transition: theme.transitions.create("width"),
-        width: "100%",
-        [theme.breakpoints.up("md")]: {
-            width: "20ch"
-        }
+        // transition: theme.transitions.create("width"),
     }
 }));
 
 export default function SearchChat() {
     return (
-        <Search style={{ color: "#000" }}>
+        <Search style={{ color: '#fff', maxWidth: '100%', backgroundColor: 'rgba(10, 10, 10, 0.55)', borderRadius: '10px', margin: '10px' }}>
             <SearchIconWrapper>
                 <SearchIcon />
             </SearchIconWrapper>

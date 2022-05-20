@@ -3,7 +3,7 @@ import { useRoutes } from './routes';
 import { BrowserRouter } from 'react-router-dom';
 
 function App() {
-  const isAuthenticated = false
+  const isAuthenticated = true
   const routes = useRoutes(isAuthenticated)
 
   return (

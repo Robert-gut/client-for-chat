@@ -2,10 +2,10 @@ body{
     margin: 0;
     padding: 0;
     width: 100vw;
-    height: 100vh;
+    height: 101vh;
     background: url(img/background-dark.jpg) no-repeat;
     background-size: 100% 100%;
-    
+    overflow: hidden;
 }
 h1{
     margin: 0;

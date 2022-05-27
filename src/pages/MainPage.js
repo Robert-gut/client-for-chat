@@ -2,7 +2,7 @@ import React from "react"
 
 import Grid from '@mui/material/Grid';
 import { makeStyles } from '@mui/styles';
-import { ChatList } from './../Componens/ChatList/ChatList';
+import ChatList from './../Componens/ChatList/ChatList';
 import MyUserName from "../Componens/MyUserName/MyUserName";
 import SearchChat from './../Componens/SearchChat/SearchChat';
 import Filter from "../Componens/Filter/Filter";

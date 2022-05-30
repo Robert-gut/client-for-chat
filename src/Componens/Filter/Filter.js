@@ -11,7 +11,6 @@ export default function Filter() {
 
 
     return (
-        
             <BottomNavigation
                 showLabels
                 value={value}

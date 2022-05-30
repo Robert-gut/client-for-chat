@@ -22,9 +22,6 @@ const actions = [
 export default function PlaygroundSpeedDial() {
     const [direction] = React.useState('left');
 
-
-
-
     return (
         <StyledSpeedDial
             ariaLabel="SpeedDial playground example"

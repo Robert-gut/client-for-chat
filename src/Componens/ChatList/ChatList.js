@@ -34,6 +34,7 @@ export default function ChatList() {
     );
 }
 
+
 const messageExamples = [
     {
         primary: 'James',

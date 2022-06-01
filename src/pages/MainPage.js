@@ -6,6 +6,7 @@ import ChatList from './../Componens/ChatList/ChatList';
 import MyUserName from "../Componens/MyUserName/MyUserName";
 import SearchChat from './../Componens/SearchChat/SearchChat';
 import Filter from "../Componens/Filter/Filter";
+import Chat from "../Componens/Chat/Chat";
 
 
 //style
@@ -26,11 +27,13 @@ export const MainPage = () => {
                 <div>
                     <MyUserName />
                     <SearchChat />
-                    <Filter/>
+                    <Filter />
                     <ChatList />
                 </div>
             </Grid>
-            <Grid item xs={6} sm={6} md={6} lg={6}></Grid>
+            <Grid item xs={8} sm={8} md={8} lg={8}>
+                <Chat />
+            </Grid>
         </Grid>
     )
 }

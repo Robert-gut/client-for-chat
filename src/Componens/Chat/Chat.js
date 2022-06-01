@@ -6,12 +6,20 @@ import IconButton from '@mui/material/IconButton';
 import { blue, red } from '@mui/material/colors';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { green500 } from 'material-ui/styles/colors';
-import { Box } from '@mui/material';
+
 
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
+
+import Box from '@mui/material/Box';
+
+import Paper from '@mui/material/Paper';
+import InputBase from '@mui/material/InputBase';
+import Divider from '@mui/material/Divider';
+import MenuIcon from '@mui/icons-material/Menu';
+import DirectionsIcon from '@mui/icons-material/Directions';
 
 
 
@@ -29,7 +37,7 @@ export default function Chat() {
     const [messages, setMessages] = React.useState(() => refreshMessages());
 
     return (
-        <Box sx={{ color: '#fff', Width: '100vw', Height: '100vh', backgroundColor: 'rgba(10, 10, 10, 0.55)', borderRadius: '10px', margin: '10px', }}>
+        <Box sx={{ color: '#fff', Width: '100vw', Height: '100vh', borderRadius: '10px', margin: '10px', }}>
             <Card sx={{ color: '#fff', Width: '100vw', Height: '7vh', backgroundColor: 'rgba(10, 10, 10, 0.55)', borderRadius: '10px', margin: '10px', }}>
                 <CardHeader
                     avatar={
@@ -45,11 +53,11 @@ export default function Chat() {
                         </div>
                     }
                     title={<span style={{ color: '#fff', fontSize: '24px' }}>Robin</span>}
-                    subheader={<p style={{ color: '#AFAFAF', margin: '2px 0' }}>onlane:</p>}
+                    subheader={<p style={{ color: '#AFAFAF', margin: '2px 0' }}>online:</p>}
                 />
             </Card>
 
-            <List className='scroll' style={{ color: '#fff', maxWidth: '100%', maxHeight: '76vh', backgroundColor: 'rgba(10, 10, 10, 0.55)', borderRadius: '10px', margin: '10px', overflowY: 'scroll' }}>
+            <List className='scroll' style={{ color: '#fff', maxWidth: '100%', maxHeight: '81vh', backgroundColor: 'rgba(10, 10, 10, 0.55)', borderRadius: '10px', margin: '10px', overflowY: 'scroll' }}>
                 {messages.map(({ primary, secondary, person }, index) => (
                     <ListItem button key={index + person} style={{ backgroundColor: 'rgba(10, 10, 10, 0.55)', margin: '10px 0', borderRadius: '10px' }}>
                         <ListItemAvatar>
@@ -58,16 +66,30 @@ export default function Chat() {
                         <ListItemText primary={primary} secondary={<p style={{ color: '#AFAFAF', margin: '5px 0' }}>{secondary}</p>} />
                     </ListItem>
                 ))}
-            </List>     
+            </List> 
+            
+            <Paper
+                component="form"
+                sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: "98%", margin: '10px 10px 20px'}}
+            >
+                <IconButton sx={{ p: '10px' }} aria-label="menu">
+                    <MenuIcon />
+                </IconButton>
+                <InputBase
+                    sx={{ ml: 1, flex: 1 }}
+                    placeholder="Write a message"
+                    inputProps={{ 'aria-label': 'search google maps' }}
+                />
+                <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
+                <IconButton color="primary" sx={{ p: '10px' }} aria-label="directions">
+                    <DirectionsIcon />
+                </IconButton>
+            </Paper>
 
         </Box>
 
     );
 }
-
-
-
-
 
 const messageExamples = [
     {

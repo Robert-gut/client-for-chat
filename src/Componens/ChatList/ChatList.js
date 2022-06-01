@@ -21,7 +21,7 @@ export default function ChatList() {
 
 
     return (
-        <List style={{ color: '#fff', maxWidth: '100%', maxHeight: '76vh', backgroundColor: 'rgba(10, 10, 10, 0.55)', borderRadius: '10px', margin: '10px', overflowY: 'scroll' }}>
+        <List className='scroll' style={{ color: '#fff', maxWidth: '100%', maxHeight: '76vh', backgroundColor: 'rgba(10, 10, 10, 0.55)', borderRadius: '10px', margin: '10px', overflowY: 'scroll' }}>
             {messages.map(({ primary, secondary, person }, index) => (
                 <ListItem button key={index + person} style={{ backgroundColor: 'rgba(10, 10, 10, 0.55)', margin: '10px 0', borderRadius: '10px' }}>
                     <ListItemAvatar>
